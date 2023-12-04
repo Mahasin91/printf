@@ -26,12 +26,10 @@ int _printf(const char *format, ...)
 				write_str(va_arg(args, const char *), &count);
 				break;
 				case 'd':
-				_printf("%d", va_arg(args, int));
-				count++;
+				write_char(va_arg(args, int), &count);
 				break;
 				case 'i':
-				_printf("%d", va_arg(args, int));
-				count++;
+				write_char(va_arg(args, int), &count);
 				break;
 			case '%':
 				write_char('%', &count);
