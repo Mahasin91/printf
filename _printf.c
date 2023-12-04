@@ -1,12 +1,10 @@
-#include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
-
 /**
- * _printf - Custom printf Make By Self
- * @format: Format string
- * Return: Number of characters printed
- */
+* _printf - Custom printf Make By Self
+* @format: Format string
+* Return: Number of characters printed
+*/
 int _printf(const char *format, ...)
 {
 va_list args;
@@ -31,8 +29,8 @@ write_char('%', &count);
 break;
 default:
 write_char('%', &count);
-write_char(*format, &count);
-break;
+write_str(format, &count);
+count++;
 }
 }
 else

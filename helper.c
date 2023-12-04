@@ -8,22 +8,23 @@
 */
 void write_char(char c, int *count)
 {
-write(1, &c, 1);
-(*count)++;
+	write(1, &c, 1);
+	(*count)++;
 }
 
 /**
 * write_str - Helper function to write a string to stdout
 * @str: String to write
-* Return: count
+* @count: Pointer to the count of characters
 */
-int write_str(const char *str)
+void write_str(const char *str)
 {
-int count = 0;
-while (*str)
-{
-write_char(*str, &count);
-str++;
-}
-return (count);
+	
+    int count = 0;
+    while (*str)
+    {
+        write_char(*str, &count);
+        str++;
+    }
+    return count;
 }
