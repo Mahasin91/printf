@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
                 write_str(va_arg(args, const char *), &count);
                 break;
             }
-            case 'd':
+            
             case 'i':
             {
                 write_int(va_arg(args, int), &count);
@@ -38,7 +38,8 @@ int _printf(const char *format, ...)
             }
             case 'b':
             {
-                write_binary(va_arg(args, unsigned int));
+                unsigned int num = va_arg(args, unsigned int);
+                write_binary(num );
                 count += 8;
                 format += 2;
                 break;
@@ -49,14 +50,16 @@ int _printf(const char *format, ...)
                 break;
             }
             default:
+            {
                 write_char('%', &count);
                 write_str(format, &count);
                 count++;
             }
+            }
         }
         else
         {
-            
+
             write_char(*format, &count);
         }
         format++;
