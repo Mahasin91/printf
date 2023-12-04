@@ -26,3 +26,15 @@ void write_str(const char *str, int *count)
 		str++;
 	}
 }
+
+
+/**
+* write_int - Helper function to write a int
+* @i: int to write
+* @count: Pointer to the count of characters
+*/
+void write_int(int i, int *count)
+{
+	printf("%d", i);
+	(*count)++;
+}
