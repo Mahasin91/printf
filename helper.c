@@ -29,12 +29,20 @@ void write_str(const char *str, int *count)
 
 
 /**
-* write_int - Helper function to write a int
+* write_int - Helper function to write a int using putchar function
 * @i: int to write
 * @count: Pointer to the count of characters
 */
-void write_int(int i, int *count)
-{
-	write(1, &i, 1);
-	(*count)++;
+void write_int(int i, int *count) {
+    char buffer[20];
+    int length = sprintf(buffer, "%d", i);
+
+    if (length < 0) {
+        return;
+    }
+
+    for (int j = 0; j < length; j++) {
+        putchar(buffer[j]);
+        (*count)++;
+    }
 }
