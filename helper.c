@@ -33,16 +33,9 @@ void write_str(const char *str, int *count)
 * @i: int to write
 * @count: Pointer to the count of characters
 */
-void write_int(int i, int *count) {
-    char buffer[20];
-    int length = sprintf(buffer, "%d", i);
+void write_int(int i, int *count)
+{
 
-    if (length < 0) {
-        return;
-    }
-
-    for (int j = 0; j < length; j++) {
-        putchar(buffer[j]);
-        (*count)++;
-    }
+printf("%d", i)
+(*count)++;
 }
