@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(args, format);
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -25,11 +25,6 @@ int _printf(const char *format, ...)
 			case 's':
 				write_str(va_arg(args, const char *), &count);
 				break;
-			case 'd':
-            case 'i': {
-                int num = va_arg(args, int);
-                write_char((char *)va_arg(args, int), &count);
-                break;
 			case '%':
 				write_char('%', &count);
 				break;
