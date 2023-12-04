@@ -20,14 +20,10 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 			case 'c':
-				write_char(va_arg(args, int), &count, &format);
+				write_char(va_arg(args, int), &count);
 				break;
 			case 's':
 				write_str(va_arg(args, const char *), &count);
-				break;
-			case 'd':
-			case 'i':
-				write_char(va_arg(args, int), &count, &format);
 				break;
 			case '%':
 				write_char('%', &count);
