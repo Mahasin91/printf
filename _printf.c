@@ -25,12 +25,11 @@ int _printf(const char *format, ...)
 			case 's':
 				write_str(va_arg(args, const char *), &count);
 				break;
-				case 'd':
-				write_char(va_arg(args, int), &count);
-				break;
-				case 'i':
-				write_char(va_arg(args, int), &count);
-				break;
+			case 'd':
+            case 'i': {
+                int num = va_arg(args, int);
+                printf("%d", num);
+                break;
 			case '%':
 				write_char('%', &count);
 				break;
