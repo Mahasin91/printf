@@ -35,6 +35,6 @@ void write_str(const char *str, int *count)
 */
 void write_int(int i, int *count)
 {
-	printf("%d", i);
+	write(1, &i, 1);
 	(*count)++;
 }
