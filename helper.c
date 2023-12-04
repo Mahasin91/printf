@@ -4,38 +4,15 @@
 /**
 * write_char - Helper function to write a character to stdout
 * @c: Character to write
+* @format: pointer
 * @count: Pointer to the count of characters
 */
-void write_char(char c, int *count)
+void write_char(char c, int *count, int *format)
 {
-	write(1, &c, 1);
-	(*count)++;
-}
-
-/**
-* write_str - Helper function to write a string to stdout
-* @str: String to write
-* @count: Pointer to the count of characters
-*/
-void write_str(const char *str, int *count)
-{
-	while (*str)
-	{
-		write_char(*str, count);
-		str++;
-	}
-}
-
-/**
-* write_int - Helper function to write a int
-* @num: int to write
-* @count: Pointer to the count of characters
-*/
-void write_int(int num, int *count)
+if (*format == 'd' || *format == 'i')
 {
 char buffer[12];
 int length = 0;
-
 if (num == 0)
 {
 buffer[length++] = '0';
@@ -60,4 +37,24 @@ buffer[j] = temp;
 }
 }
 write_str(buffer, count);
+}
+else
+{
+write(1, &c, 1);
+(*count)++;
+}
+}
+
+/**
+* write_str - Helper function to write a string to stdout
+* @str: String to write
+* @count: Pointer to the count of characters
+*/
+void write_str(const char *str, int *count)
+{
+	while (*str)
+	{
+		write_char(*str, count);
+		str++;
+	}
 }
