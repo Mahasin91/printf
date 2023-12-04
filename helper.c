@@ -21,8 +21,22 @@ void write_str(const char *str, int *count)
 {
 	while (*str)
 	{
-		write(1, str, 1);
-		(*count)++;
+		write_char(*str, count);
 		str++;
 	}
+}
+
+/**
+* write_int - Helper function to write a int to stdout
+* @num: int to write
+* @count: Pointer to the count of characters
+*/
+void write_int(int num, int *count)
+{
+	char buffer[12];
+	int length = snprintf(buffer, sizeof(buffer), "%d", num);
+
+	write_str(buffer, count);
+
+	*count += length;
 }
