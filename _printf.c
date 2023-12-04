@@ -24,6 +24,11 @@ break;
 case 's':
 write_str(va_arg(args, const char *), &count);
 break;
+case 'd':
+case 'i':
+{
+write_int(va_arg(args, int), &count);
+}
 case '%':
 write_char('%', &count);
 break;
