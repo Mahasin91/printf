@@ -48,8 +48,8 @@ count++;
 else
 {
 write_char(*format, &count);
-}
 format++;
+}
 }
 va_end(args);
 return (count);
