@@ -17,14 +17,12 @@ void write_char(char c, int *count)
 * @str: String to write
 * @count: Pointer to the count of characters
 */
-void write_str(const char *str)
+void write_str(const char *str, int *count)
 {
-	
-    int count = 0;
-    while (*str)
-    {
-        write_char(*str, &count);
-        str++;
-    }
-    return count;
+	while (*str)
+	{
+		write(1, str, 1);
+		(*count)++;
+		str++;
+	}
 }

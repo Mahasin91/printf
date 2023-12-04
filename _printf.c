@@ -22,7 +22,7 @@ case 'c':
 write_char(va_arg(args, int), &count);
 break;
 case 's':
-count += write_str(va_arg(args, const char *));
+write_str(va_arg(args, const char *), &count);
 break;
 case '%':
 write_char('%', &count);
