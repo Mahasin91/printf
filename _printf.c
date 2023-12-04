@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include <unistd.h>
-#include <string.h>
 #include "main.h"
 /**
 * _printf - Custom printf Make By Self
@@ -10,12 +9,10 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int args_num = strlen(format);
 	int count = 0;
 
-	va_start(args, args_num);
-	int i = 0;
-	while (i < args_num)
+	va_start(args, format);
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -42,7 +39,6 @@ int _printf(const char *format, ...)
 			write_char(*format, &count);
 		}
 		format++;
-		i++;
 	}
 	va_end(args);
 	return (count);
