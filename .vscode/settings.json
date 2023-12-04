@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "_printf": "c",
+        "main.h": "c",
+        "stdarg.h": "c"
+    }
+}
