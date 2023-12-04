@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 			case 'd':
             case 'i': {
                 int num = va_arg(args, int);
-                printf("%d", num);
+                write_char((char *)va_arg(args, int), &count);
                 break;
 			case '%':
 				write_char('%', &count);
