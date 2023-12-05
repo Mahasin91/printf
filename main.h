@@ -11,6 +11,4 @@ void write_int(int num, int *count);
 
 int _printf(const char *format, ...);
 
-int _putchar(char c);
-
 #endif
