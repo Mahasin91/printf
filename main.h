@@ -11,5 +11,6 @@ void write_int(int num, int *count);
 
 int _printf(const char *format, ...);
 
-void write_binary(unsigned int n);
+int _putchar(char c);
+
 #endif
