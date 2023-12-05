@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include <unistd.h>
 #include "main.h"
 /**
 * write_char - Helper function to write a character to stdout
@@ -34,24 +32,23 @@ void write_str(const char *str, int *count)
 */
 void write_int(int num, int *count)
 {
-	char buffer[12];
+char buffer[12];
+int len = 0;
+if (num < 0)
+{
+write(1, "-", 1);
+(*count)++;
+num = -num;
+}
 
-	int len = 0;
+do {
+buffer[len++] = num % 10 + '0';
+num /= 10;
+} while (num > 0);
 
-	if (num < 0)
-	{
-		write(1, "-", 1);
-		(*count)++;
-		num = -num;
-	}
-	do	{
-		buffer[len++] = num % 10 + '0';
-		num /= 10;
-	} while (num > 0);
-
-	while (len > 0)
-	{
-		write(1, &buffer[--len], 1);
-		(*count)++;
-	}
+while (len > 0)
+{
+write(1, &buffer[--len], 1);
+(*count)++;
+}
 }
