@@ -36,14 +36,7 @@ int _printf(const char *format, ...)
                 write_int(va_arg(args, int), &count);
                 break;
             }
-            case 'b':
-            {
-                unsigned int num = va_arg(args, unsigned int);
-                write_binary(num );
-                count += 8;
-                format += 2;
-                break;
-            }
+                
             case '%':
             {
                 write_char('%', &count);
