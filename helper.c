@@ -55,32 +55,3 @@ void write_int(int num, int *count)
 		(*count)++;
 	}
 }
-/**
- * print_binary - Write the binary representation of an unsigned int to stdout
- * @n: Unsigned int to be printed
- */
-void write_binary(unsigned int n)
-{
-	int binary[32];
-	int i = 0;
-	if (n == 0)
-	{
-		write(1, "0", 1);
-		return;
-	}
-
-	
-
-	while (n > 0)
-	{
-		binary[i++] = n % 2;
-		n /= 2;
-	}
-
-	for (i--; i >= 0; i--)
-	{
-		char digit = '0' + binary[i];
-
-		write(1, &digit, 1);
-	}
-}
